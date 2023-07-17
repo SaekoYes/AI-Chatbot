@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/dist/output.css" rel="stylesheet">
+<style>
+h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+</style>
+  <title>AI Chat Bot</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    function respond() {
+      var userInput = document.getElementById("user-input").value;
+      var response = Math.random() < 0.5 ? "no" : "idk";
+      document.getElementById("response").innerText = response;
+      document.getElementById("user-input").value = "";
+    }
+  </script>
+</head>
+<style>
+.myDiv { 
+        text-align: center;
+      }
+      </style>
+      </head>
+      <body>
+      
+    <h1>FindMyAnswerAI</h1>
+      
+      <div class="myDiv">
+        <div style="display: flex; justify-content: center; align-items: center;">
+        <input type="text" id="user-input" placeholder="Ask a question">
+        <button onclick="respond()">Ask</button>
+    </div>
+        <p id="response"></p>
+    </div>
+</body>
+</html>
