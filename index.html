@@ -1,42 +1,78 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/dist/output.css" rel="stylesheet">
-<style>
-h1 {text-align: center;}
-    p {text-align: center;}
-    div {text-align: center;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <style>
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    div {
+      text-align: center;
+    }
+  </style>
   <title>AI Chat Bot</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="output.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script>
-    function respond() {
+    var cooldown = false;
+    function delay(time) {
+      return new Promise(resolve => setTimeout(resolve, time));
+    }
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    async function respond() {
+      if(cooldown) return;
+      cooldown = true;
+      if (document.getElementById("user-input").value == "") {
+        document.getElementById("response").innerText = "where ur question????????????????????????????";
+        cooldown = false;
+        return;
+      }
+      var delay_bot = getRandomInt(3000,12000); 
+      document.getElementById("response").innerText = "wait for response very popular bt srrry !!! ur delay is: " + delay_bot / 1000 + "s";
+      await delay(delay_bot);
       var userInput = document.getElementById("user-input").value;
       var response = Math.random() < 0.5 ? "no" : "idk";
       document.getElementById("response").innerText = response;
       document.getElementById("user-input").value = "";
+      cooldown = false;
     }
   </script>
 </head>
-<style>
-.myDiv { 
-        text-align: center;
-      }
-      </style>
-      </head>
-      <body>
-      
-    <h1>FindMyAnswerAI</h1>
-      
-      <div class="myDiv">
-        <div style="display: flex; justify-content: center; align-items: center;">
-        <input type="text" id="user-input" placeholder="Ask a question">
-        <button onclick="respond()">Ask</button>
+
+</head>
+
+<body>
+
+  <div class="w-screen h-screen bg-orange-300 justify-center items-center flex flex-col space-y-5">
+    <div class="flex flex-col space-x-3 items-center select-none">
+   
+      <p class="text-xl font-black ">OMG</p>
+      <p class="text-5xl font-black">FindMyAnswerAI</p>
     </div>
-        <p id="response"></p>
+
+    <div class="space-y-2 flex flex-col justify-center items-center w-full">
+      <button class="py-3 px-5 bg-white rounded-3xl  animate-bounce hover:animate-none  font-bold hover:scale-150 transition-transform"  >pay us pls</button>
+      <div class="flex flex-row space-x-2 shrink-0">
+        
+        <input class="w-[300px] border-black border-4 shrink-0 rounded-3xl font-bold p-3" type="text" id="user-input" placeholder="Ask a question">
+        <button class="py-3 px-5 bg-white rounded-3xl  font-bold hover:scale-110 transition-transform" onclick="respond()">Ask</button>
+      </div>
+ 
+      <p class="text-5xl w-full break-words" id="response"></p>
     </div>
+  </div>
 </body>
+
 </html>
