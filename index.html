@@ -43,7 +43,7 @@
       document.getElementById("response").innerText = "wait for response very popular bt srrry !!! ur delay is: " + delay_bot / 1000 + "s";
       await delay(delay_bot);
       var userInput = document.getElementById("user-input").value;
-      var response = Math.random() < 0.5 ? "no" : "idk";
+      var response = Math.random() < 0.5 ? "no" : "idk how";
       document.getElementById("response").innerText = response;
       document.getElementById("user-input").value = "";
       cooldown = false;
@@ -63,8 +63,7 @@
     </div>
 
     <div class="space-y-2 flex flex-col justify-center items-center w-full">
-      <button class="py-3 px-5 bg-white rounded-3xl  animate-bounce hover:animate-none  font-bold hover:scale-150 transition-transform"  >pay us pls</button>
-      <div class="flex flex-row space-x-2 shrink-0">
+      <button class="py-3 px-5 bg-white rounded-3xl  animate-bounce hover:animate-none  font-bold hover:scale-150 transition-transform" onclick="window.location.href='credits.html'">pay us pls</button>     <div class="flex flex-row space-x-2 shrink-0">
         
         <input class="w-[300px] border-black border-4 shrink-0 rounded-3xl font-bold p-3" type="text" id="user-input" placeholder="Ask a question">
         <button class="py-3 px-5 bg-white rounded-3xl  font-bold hover:scale-110 transition-transform" onclick="respond()">Ask</button>
